@@ -17,7 +17,15 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "puzzle": [
+        "dist/puzzle"
+      ],
+      "puzzle/*": [
+        "dist/puzzle/*"
+      ]
+    }
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,
