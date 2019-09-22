@@ -1,0 +1,4 @@
+diff a/src/app/core/common-attr/attr.service.ts b/src/app/core/common-attr/attr.service.ts	(rejected hunks)
+@@ -16 +16 @@ export class AttrService {
+-    this.attrList = {...attrList};
++    this.attrList = { ...attrList };
