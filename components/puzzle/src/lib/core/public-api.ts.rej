@@ -1,0 +1,4 @@
+diff a/components/puzzle/src/lib/core/public-api.ts b/components/puzzle/src/lib/core/public-api.ts	(rejected hunks)
+@@ -1 +1 @@
+-export const prop: string = 'prop';
++export const prop = 'prop';

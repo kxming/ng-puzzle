@@ -1,0 +1,17 @@
+diff a/src/app/core/common-attr/color.service.ts b/src/app/core/common-attr/color.service.ts	(rejected hunks)
+@@ -3 +3,11 @@ import { Injectable, Renderer2, RendererFactory2 } from '@angular/core';
+-export type palette = 'prime' | 'danger' | 'warning' | 'success' | 'info' | 'light' | 'dark' | 'secondary' | 'link' | string;
++export type palette =
++  | 'prime'
++  | 'danger'
++  | 'warning'
++  | 'success'
++  | 'info'
++  | 'light'
++  | 'dark'
++  | 'secondary'
++  | 'link'
++  | string;
+@@ -22 +32 @@ export class AttrService {
+-    this.colorList = {...attrList};
++    this.colorList = { ...attrList };
