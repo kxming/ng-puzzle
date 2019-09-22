@@ -1,6 +1,0 @@
-diff a/src/app/button/button.module.ts b/src/app/button/button.module.ts	(rejected hunks)
-@@ -9,3 +7 @@ import { ButtonComponent } from './button.component';
--  imports: [
--    CommonModule
--  ]
-+  imports: [CommonModule]

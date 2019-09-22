@@ -5,13 +5,15 @@
       true,
       "attribute",
       "pz",
-      "camelCase"
+      "camelCase",
+      "element[attribute]"
     ],
     "component-selector": [
       true,
       "element",
       "pz",
-      "kebab-case"
+      "kebab-case",
+      "element[attribute]"
     ]
   }
 }

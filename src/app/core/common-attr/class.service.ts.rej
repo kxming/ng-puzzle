@@ -1,5 +1,0 @@
-diff a/src/app/core/common-attr/class.service.ts b/src/app/core/common-attr/class.service.ts	(rejected hunks)
-@@ -7,2 +7 @@ export class ClassService {
--
--  constructor() { }
-+  constructor() {}

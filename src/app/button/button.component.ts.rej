@@ -1,8 +1,0 @@
-diff a/src/app/button/button.component.ts b/src/app/button/button.component.ts	(rejected hunks)
-@@ -10,5 +11 @@ export class ButtonComponent implements OnInit {
--  constructor() { }
--
--  ngOnInit() {
--  }
--
-+  ngOnInit() {}

@@ -1,6 +1,6 @@
 import { Injectable, Renderer2, RendererFactory2 } from '@angular/core';
 
-export type palette =
+export type Palette =
   | 'prime'
   | 'danger'
   | 'warning'
@@ -13,13 +13,13 @@ export type palette =
   | string;
 
 export interface Color {
-  pzColor: palette;
+  pzColor: Palette;
 }
 
 @Injectable({
   providedIn: 'root'
 })
-export class AttrService {
+export class ColorService {
   private renderer: Renderer2;
   private colorList: object = {};
 
@@ -27,9 +27,9 @@ export class AttrService {
     this.renderer = rendererFactory.createRenderer(null, null);
   }
 
-  updateAttr(el: HTMLElement, attrList: object) {
-    this.removeColor(el, attrList);
-    this.colorList = { ...attrList };
+  updateColor(el: HTMLElement, colorList: object) {
+    this.removeColor(el, colorList);
+    this.colorList = { ...colorList };
     this.addColor(el, this.colorList);
   }
 
