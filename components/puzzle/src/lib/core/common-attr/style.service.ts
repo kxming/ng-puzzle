@@ -6,9 +6,7 @@ export interface Color {
   pzColor: Palette;
 }
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class ColorService {
   private renderer: Renderer2;
   private colorList: object = {};
