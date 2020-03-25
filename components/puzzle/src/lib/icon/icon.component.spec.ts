@@ -1,19 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { RowComponent } from './row.component';
+import { IconComponent } from './icon.component';
 
-describe('RowComponent', () => {
-  let component: RowComponent;
-  let fixture: ComponentFixture<RowComponent>;
+describe('IconComponent', () => {
+  let component: IconComponent;
+  let fixture: ComponentFixture<IconComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [RowComponent]
-    }).compileComponents();
+      declarations: [ IconComponent ]
+    })
+    .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(RowComponent);
+    fixture = TestBed.createComponent(IconComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
