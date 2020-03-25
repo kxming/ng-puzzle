@@ -3,14 +3,11 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
-import { ButtonModule } from './button/button.module';
-import { ClassService } from './core/common-attr/class.service';
+import { PuzzleModule } from '@puzzle/ng';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, AppRoutingModule, ButtonModule],
-  providers: [ClassService],
+  imports: [BrowserModule, AppRoutingModule, PuzzleModule],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

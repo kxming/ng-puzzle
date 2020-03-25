@@ -5,10 +5,7 @@ import { AttrService, ClassService, StyleService } from '../core/common-attr';
   selector: 'pz-icon, Icon',
   templateUrl: './icon.component.html',
   styleUrls: [
-    './icon.component.less',
-    // './style/font-awesome/font-awesome.css',
-    // './style/material/css/material-design-iconic-font.min.css',
-    // './style/themify/themify-icons.css'
+    './icon.component.less'
   ],
   encapsulation: ViewEncapsulation.Emulated
 })

@@ -4,9 +4,7 @@ import {
   RendererFactory2
 } from '@angular/core';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class AttrService {
   private renderer: Renderer2;
   private attrList: object = {};

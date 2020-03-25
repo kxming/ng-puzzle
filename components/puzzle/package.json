@@ -2,6 +2,7 @@
   "name": "@puzzle/ng",
   "version": "0.0.1",
   "peerDependencies": {
+    "@angular/cdk": "^8.2.0",
     "@angular/common": "^8.2.4",
     "@angular/core": "^8.2.4"
   }

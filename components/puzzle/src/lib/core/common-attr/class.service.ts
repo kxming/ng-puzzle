@@ -1,8 +1,6 @@
 import { Injectable, Renderer2, RendererFactory2 } from '@angular/core';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class ClassService {
   private renderer: Renderer2;
   private classList: object = {};

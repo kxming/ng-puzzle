@@ -2,12 +2,15 @@ import { Injectable, Renderer2, RendererFactory2 } from '@angular/core';
 
 export type Palette = 'prime' | 'danger' | 'warning' | 'success' | 'info' | 'light' | 'dark' | 'secondary' | 'link' | string;
 
+export interface Status {
+  status: Palette;
+}
 export interface Color {
-  pzColor: Palette;
+  color: string;
 }
 
 @Injectable()
-export class ColorService {
+export class StyleService {
   private renderer: Renderer2;
   private colorList: object = {};
 

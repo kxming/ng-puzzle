@@ -19,10 +19,11 @@
       "dom"
     ],
     "paths": {
-      "puzzle": [
+      "@puzzle/ng": [
+        "components/puzzle/src/public-api",
         "dist/puzzle"
       ],
-      "puzzle/*": [
+      "@puzzle/ng/*": [
         "dist/puzzle/*"
       ]
     }
