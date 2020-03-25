@@ -22,14 +22,13 @@
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
-            "aot": false,
+            "aot": true,
             "assets": [
               "src/favicon.ico",
               "src/assets"
             ],
             "styles": [
-              "src/styles.less",
-              "src/assets/icon/themify/themify-icons.css"
+              "src/styles.less"
             ],
             "scripts": []
           },
@@ -46,7 +45,6 @@
               "sourceMap": false,
               "extractCss": true,
               "namedChunks": false,
-              "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
@@ -137,6 +135,11 @@
           "options": {
             "tsConfig": "components/puzzle/tsconfig.lib.json",
             "project": "components/puzzle/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "components/puzzle/tsconfig.lib.prod.json"
+            }
           }
         },
         "test": {
@@ -180,7 +183,7 @@
             "main": "components/ng-puzzle-doc/src/main.ts",
             "polyfills": "components/ng-puzzle-doc/src/polyfills.ts",
             "tsConfig": "components/ng-puzzle-doc/tsconfig.app.json",
-            "aot": false,
+            "aot": true,
             "assets": [
               "components/ng-puzzle-doc/src/favicon.ico",
               "components/ng-puzzle-doc/src/assets"
@@ -203,7 +206,6 @@
               "sourceMap": false,
               "extractCss": true,
               "namedChunks": false,
-              "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
@@ -282,6 +284,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "ng-puzzle"
+    }
+  },
+  "defaultProject": "ng-puzzle",
+  "cli": {
+    "analytics": "4eacbc0d-9ce0-4c5a-8476-ad3c291f18e5"
+  }
 }
