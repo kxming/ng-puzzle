@@ -2,8 +2,9 @@
   "name": "@puzzle/ng",
   "version": "0.0.1",
   "peerDependencies": {
-    "@angular/cdk": "^8.2.0",
-    "@angular/common": "^8.2.4",
-    "@angular/core": "^8.2.4"
+    "@angular/cdk": "^9.1.3",
+    "@angular/common": "~9.0.7",
+    "@angular/core": "~9.0.7",
+    "@ant-design/icons-angular": "^9.0.0"
   }
 }

@@ -1,51 +1,37 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  EventEmitter,
-  Input,
-  OnInit,
-  Output,
-  ViewEncapsulation,
-  ElementRef,
-  AfterContentInit,
-  OnChanges,
-  SimpleChanges
-} from '@angular/core';
-import { Color, StyleService, Palette } from '../core/common-attr';
-import { ClassService } from '../core/common-attr';
-import { AttrService } from '../core/common-attr';
+import { Component, Input, OnInit, ViewEncapsulation, ChangeDetectionStrategy, AfterContentInit, OnChanges, SimpleChanges, ElementRef } from '@angular/core';
+import { AttrService, ClassService, Color, Palette, Size, StyleService, Shape } from '../core/common-attr';
 
 @Component({
   selector: `pz-button`,
   templateUrl: './button.component.html',
   styleUrls: ['./style/button.component.less'],
-  exportAs: `pzButton`,
+  exportAs: `pz-button`,
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None
 })
-export class ButtonComponent implements OnInit, AfterContentInit, OnChanges, Color {
+export class ButtonComponent implements OnInit, AfterContentInit, OnChanges {
 
-  @Input() size: 'small' | 'default' | 'large' = 'default';
+  @Input() type: Palette = 'prime';
 
-  @Input() type: 'default' | 'circle' | 'cube' | 'fab' = 'default';
+  @Input() size: Size = 'default';
 
-  @Input() color: string = 'red';
+  @Input() color: Color = 'red';
 
-  @Input() status: Palette = 'prime';
+  @Input() shape: Shape = 'default';
 
   @Input() ghost: boolean = false;
 
   @Input() loading: boolean = false;
 
+  @Input() disabled: boolean = false;
+
+  @Input() block: boolean = false;
+
   @Input() tabIndex: number;
 
-  @Output() onClick: EventEmitter<any> = new EventEmitter<any>();
-
-  @Output() onFocus: EventEmitter<any> = new EventEmitter<any>();
-
-  @Output() onBlur: EventEmitter<any> = new EventEmitter<any>();
-
   readonly el: HTMLElement = this.elementRef.nativeElement;
+
+  class: string = 'pz-btn-';
 
   constructor(private elementRef: ElementRef,
               private classService: ClassService,
@@ -54,12 +40,14 @@ export class ButtonComponent implements OnInit, AfterContentInit, OnChanges, Col
 
   setClass() {
     this.classService.updateClass(this.el, {
-      [`pz-btn`]: true,
-      [`pz-btn-${this.type}`]: this.type,
-      [`pz-btn-${this.size}`]: this.size,
-      [`pz-btn-${this.status}`]: this.status,
-      [`pz-btn-${this.ghost}`]: this.ghost,
-      [`pz-btn-${this.loading}`]: this.loading,
+      [`${this.class}`]: true,
+      [`${this.class}${this.type}`]: this.type,
+      [`${this.class}${this.size}`]: this.size,
+      [`${this.class}${this.shape}`]: this.shape,
+      [`${this.class}${this.ghost}`]: this.ghost,
+      [`${this.class}${this.loading}`]: this.loading,
+      [`${this.class}${this.disabled}`]: this.disabled,
+      [`${this.class}${this.block}`]: this.block,
     });
   }
 

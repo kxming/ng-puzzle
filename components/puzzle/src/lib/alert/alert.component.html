@@ -1,6 +1,19 @@
-<div class="pz-alert">
+<div class="pz-alert"
+     [ngClass]="{
+    'pz-btn-prime': type === 'prime',
+    'pz-btn-danger': type === 'danger',
+    'pz-btn-warning': type === 'warning',
+    'pz-btn-success': type === 'success',
+    'pz-btn-info': type === 'info',
+    'pz-btn-light': type === 'light',
+    'pz-btn-dark': type === 'dark',
+    'pz-btn-small': size === 'small',
+    'pz-btn-large': type === 'large'
+    }"
+     [ngStyle]="{'color': color}">
   <i class="pz-icon close" *ngIf="closeable"></i>
-  <div class="pz-alert-body">
+  <div class="pz-alert-maini">
     <h4 class="pz-alert-header">{{header}}</h4>
+    <h4 class="pz-alert-body">{{body}}</h4>
   </div>
 </div>

@@ -1,5 +1,6 @@
-import { AfterContentInit, Component, ElementRef, Input, OnInit, ViewEncapsulation } from '@angular/core';
+import { AfterContentInit, Component, ElementRef, Inject, Input, OnInit, Optional, ViewEncapsulation } from '@angular/core';
 import { AttrService, ClassService, StyleService } from '../core/common-attr';
+import { IconRegistry } from './icon.registry';
 
 @Component({
   selector: 'pz-icon, Icon',
@@ -11,8 +12,17 @@ import { AttrService, ClassService, StyleService } from '../core/common-attr';
 })
 export class IconComponent implements OnInit, AfterContentInit {
 
+  private svgIcon: SVGAElement;
 
-  @Input() type: 'font-awesome' | 'material' | 'themify' = 'themify';
+  @Input()
+  set type(iconName: string) {
+    if (this.svgIcon) {
+      this.el.removeChild(this.svgIcon);
+    }
+    const svgData = this.iconRegistry.getIcon(iconName);
+    this.svgIcon = this.svgElementFromString(svgData);
+    this.el.appendChild(this.svgIcon)
+  }
 
   @Input() icon: string;
 
@@ -23,32 +33,13 @@ export class IconComponent implements OnInit, AfterContentInit {
   readonly el: HTMLElement = this.elementRef.nativeElement;
 
   constructor(public elementRef: ElementRef,
+              private iconRegistry: IconRegistry,
+              @Optional() @Inject(Document) private document: any,
               private classService: ClassService,
               private attrService: AttrService,
               private colorService: StyleService) { }
 
   setClass() {
-    switch (this.type) {
-      case 'font-awesome':
-        this.classService.updateClass(this.el, {
-          [`fa&nbsp;${this.icon}`]: this.icon
-        });
-        break;
-      case 'material':
-        this.classService.updateClass(this.el, {
-          [`zmdi&nbsp;${this.icon}`]: this.icon
-        });
-        break;
-      case 'themify':
-        this.classService.updateClass(this.el, {
-          [`${this.icon}`]: this.icon
-        });
-        break;
-      default:
-        this.classService.updateClass(this.el, {
-          [`${this.icon}`]: this.icon
-        });
-    }
   }
 
   setAttr() {
@@ -61,6 +52,13 @@ export class IconComponent implements OnInit, AfterContentInit {
       color: this.color
     });
   }
+
+  private svgElementFromString(svgContent: string) {
+    const div = this.document.creteElement('DIV');
+    div.innerHtml = svgContent;
+    return div.querySelector('svg') || this.document.createElementNS()
+  }
+
   ngOnInit(): void {
   }
   ngAfterContentInit(): void {

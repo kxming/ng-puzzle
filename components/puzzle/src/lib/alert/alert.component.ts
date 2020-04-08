@@ -1,53 +1,34 @@
 import { AfterContentInit, Component, ElementRef, Input, OnChanges, OnInit } from '@angular/core';
-import { AttrService, ClassService, Color, Palette, Status, StyleService } from '../core/common-attr';
+import { AttrService, ClassService, Color, Palette, Size, Status, StyleService } from '../core/common-attr';
 
 @Component({
   selector: 'pz-alert, Alert',
   templateUrl: './alert.component.html',
   styleUrls: ['./alert.component.less']
 })
-export class AlertComponent implements OnInit, AfterContentInit, Color, Status {
+export class AlertComponent implements OnInit, AfterContentInit {
 
   @Input() header: string;
+
+  @Input() body: string;
 
   @Input() closeable: boolean = false;
 
   @Input() color: string;
 
-  @Input() status: Palette;
+  @Input() type: Status = 'prime';
+
+  @Input() size: Size = 'default';
 
   @Input() icon: boolean = false;
 
-  readonly el: HTMLElement = this.elementRef.nativeElement;
+  @Input() duration: number;
 
-  constructor(private elementRef: ElementRef,
-              private classService: ClassService,
-              private attrService: AttrService,
-              private colorService: StyleService) { }
-
-  setClass() {
-    this.classService.updateClass(this.el, {
-      [`pz-alert-${this.status}`]: this.status,
-    });
-  }
-
-  setAttr() {
-    this.attrService.updateAttr(this.el, {
-    });
-  }
-
-  setColor() {
-    this.colorService.updateColor(this.el, {
-      color: this.color
-    });
-  }
+  constructor() { }
 
   ngOnInit() {
   }
 
   ngAfterContentInit(): void {
-    this.setClass();
-    this.setAttr();
-    this.setColor();
   }
 }

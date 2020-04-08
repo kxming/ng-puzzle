@@ -1,4 +1,19 @@
-<span>
-  <span class="pz-badge">{{count}}</span>
+<span class="pz-badge"
+      *ngIf="hidden && count === 0"
+      [ngClass]="{
+      'pz-badge-circle': shape === 'circle',
+      'pz-badge-cube': shape === 'cube',
+      'pz-badge-dashed': shape === 'dashed',
+      'pz-badge-prime': type === 'prime',
+      'pz-badge-danger': type === 'danger',
+      'pz-badge-warning': type === 'warning',
+      'pz-badge-success': type === 'success',
+      'pz-badge-info': type === 'info',
+      'pz-badge-light': type === 'light',
+      'pz-badge-dark': type === 'dark',
+      'pz-badge-flicker': flicker
+      }">
+  <span *ngIf="!dot">{{count}}</span>
+  <span *ngIf="dot"></span>
   <ng-content></ng-content>
 </span>
